@@ -74,8 +74,7 @@ def check_for_meta_charset(raw):
 
 def detect_encoding(raw):
     from chardet import detect  # delay load
-    q = raw[:50 * 1024]
-    return detect(q)['encoding']
+    return detect(raw)['encoding']
 
 
 passthrough_encodings = frozenset(('utf-8', 'utf8', 'ascii'))
